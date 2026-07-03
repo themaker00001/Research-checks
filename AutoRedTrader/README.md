@@ -57,6 +57,33 @@ AutoRedTrader+Time            xx.xx%  xx.xx%     +xx.xx%
 Expect the **+Time** row to show lower MER/ASR (better robustness), matching
 the paper's finding.
 
+## Results
+
+A 20-day BTC-USD run (`qwen3:14b`, 2023-03-01 → 2023-03-20), full log in
+[`result.txt`](result.txt):
+
+| Setting | MER | ASR | CR |
+|---|---|---|---|
+| Base (buy & hold) | – | – | +19.16% |
+| AutoRedTrader (attack) | 22.25% | 20.00% | +21.71% (clean +24.18%) |
+| AutoRedTrader+Time (defense) | 27.25% | 20.00% | +18.11% (clean +23.21%) |
+
+Cumulative return of the actual market vs. the agent on clean vs. injected
+news, for both the attack and defense runs:
+
+![Actual market vs. agent cumulative return](result_chart.png)
+
+An interactive version with hover tooltips and the full daily data table is
+in [`result_chart.html`](result_chart.html) — open it directly in a browser.
+
+Both agent variants beat plain buy & hold even under attack, but injected
+misinformation consistently costs the agent return relative to its own clean
+run (flipping 4 of 20 decisions, ASR 20%, in both settings here). In this run
+the temporal-grounding defense did not lower ASR — a reminder that this is a
+small, single-asset, single-model reproduction, not the paper's full setup
+(see [Documented simplifications](#documented-simplifications-vs-the-paper)
+below).
+
 ## Files
 
 | file | role |
