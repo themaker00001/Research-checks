@@ -13,7 +13,7 @@ directly instead of taken on faith.
 | Paper | Directory | Status |
 |---|---|---|
 | [Toy Models of Superposition](https://transformer-circuits.pub/2022/toy_model/index.html) (Elhage et al., 2022) | [toy-models-superposition/](toy-models-superposition/) | Done |
-| AutoRedTrader: Autonomous Red Teaming of Trading Agents through Synthetic Misinformation Injection (arXiv:2605.09185) | [AutoRedTrader/](AutoRedTrader/) | Done |
+| [AutoRedTrader: Autonomous Red Teaming of Trading Agents through Synthetic Misinformation Injection](https://arxiv.org/abs/2605.09185) (arXiv:2605.09185) | [AutoRedTrader/](AutoRedTrader/) | Done |
 
 ## Structure
 

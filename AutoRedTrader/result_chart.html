@@ -201,12 +201,16 @@
     return [lo, hi];
   }
 
+  // shared y-axis scale across both panels, so the market line (and any
+  // series) is visually comparable run-to-run, not just numerically equal
+  const sharedVals = RUNS.flatMap(run => SERIES.flatMap(s => DATA[run.key][s.key]));
+  const [sharedYLo, sharedYHi] = niceBounds(sharedVals);
+
   RUNS.forEach(run => {
     const d = DATA[run.key];
     const n = d.dates ? d.dates.length : DATA.dates.length;
     const dates = DATA.dates;
-    const allVals = SERIES.flatMap(s => d[s.key]);
-    const [yLo, yHi] = niceBounds(allVals);
+    const [yLo, yHi] = [sharedYLo, sharedYHi];
 
     const x = i => M.left + (plotW * i) / (n - 1);
     const y = v => M.top + plotH - ((v - yLo) / (yHi - yLo)) * plotH;
